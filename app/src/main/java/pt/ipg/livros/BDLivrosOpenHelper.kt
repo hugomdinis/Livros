@@ -6,10 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class BDLivrosOpenHelper(
     context: Context?,
-    name: String?,
-    factory: SQLiteDatabase.CursorFactory?,
-    version: Int
-) : SQLiteOpenHelper(context, name, factory, version) {
+) : SQLiteOpenHelper(context, NOME, null, VERSAO) {
     /**
      * Called when the database is created for the first time. This is where the
      * creation of tables and the initial population of the tables should happen.
@@ -46,5 +43,10 @@ class BDLivrosOpenHelper(
      * @param newVersion The new database version.
      */
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+    }
+
+    companion object{
+        const val NOME = "livros.db"
+        const val VERSAO = 1
     }
 }
