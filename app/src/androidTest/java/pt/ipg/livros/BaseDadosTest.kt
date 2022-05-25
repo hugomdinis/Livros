@@ -16,14 +16,16 @@ import org.junit.Assert.*
 @RunWith(AndroidJUnit4::class)
 class BaseDadosTest {
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("pt.ipg.livros", appContext.packageName)
-    }
+    fun AppContext() =InstrumentationRegistry.getInstrumentation().targetContext
+
 
     @Test
     fun consegueAbrirBaseDados(){
-        BDLivrosOpenHelper
+        val openHelper = BDLivrosOpenHelper(AppContext())
+        val db = openHelper.readableDatabase
+
+        assertTrue(db.isOpen)
+
+        db.close()
     }
 }
