@@ -7,8 +7,8 @@ data class Livros (
     var titulo: String,
     var autores: String,
     var categoriaId: Long
-        ) {
-    fun toContentValies() : ContentValues {
+        ){
+    fun toContenValues() : ContentValues{
         val valores = ContentValues()
 
         valores.put(TabelaBDLivros.CAMPO_TITULO, titulo)
